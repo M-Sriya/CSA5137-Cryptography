@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main()
+{
+    int p[4], k[4], iv[4], c[4];
+    int i;
+
+    printf("Enter 4 plaintext bits:\n");
+    for(i = 0; i < 4; i++)
+        scanf("%d", &p[i]);
+
+    printf("Enter 4 key bits:\n");
+    for(i = 0; i < 4; i++)
+        scanf("%d", &k[i]);
+
+    printf("Enter 4 IV bits:\n");
+    for(i = 0; i < 4; i++)
+        scanf("%d", &iv[i]);
+
+    for(i = 0; i < 4; i++)
+        c[i] = (p[i] ^ iv[i]) ^ k[i];
+
+    printf("\nCiphertext: ");
+    for(i = 0; i < 4; i++)
+        printf("%d", c[i]);
+
+    printf("\n");
+
+    return 0;
+}
