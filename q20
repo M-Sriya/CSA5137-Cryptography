@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+
+    printf("=== Error Propagation Demonstration ===\n\n");
+
+    printf("ECB Mode:\n");
+    printf("If an error occurs in a ciphertext block Ci,\n");
+    printf("only the corresponding plaintext block Pi is affected.\n");
+    printf("Other plaintext blocks remain correct.\n\n");
+
+    printf("CBC Mode:\n");
+    printf("If an error occurs in ciphertext block C1:\n");
+    printf("1. Plaintext block P1 becomes completely corrupted.\n");
+    printf("2. Plaintext block P2 gets a 1-bit error in the same position.\n");
+    printf("3. Blocks beyond P2 are NOT affected.\n\n");
+
+    printf("Propagation during Encryption:\n");
+    printf("If there is a bit error in plaintext block P1,\n");
+    printf("it affects ALL subsequent ciphertext blocks (C1, C2, C3...).\n\n");
+
+    return 0;
+}
