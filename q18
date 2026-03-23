@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+
+void cbcEncrypt(char plaintext[], int key, int iv) {
+    int i;
+    int prev = iv;
+
+    printf("Ciphertext: ");
+
+    for(i = 0; plaintext[i] != '\0'; i++) {
+        int block = plaintext[i];
+
+        block = block ^ prev;     
+        block = (block + key) % 256;   
+
+        prev = block;             
+
+        printf("%d ", block);
+    }
+
+    printf("\n");
+}
+
+int main() {
+    char plaintext[100];
+    int key, iv;
+
+    printf("Enter plaintext: ");
+    scanf("%s", plaintext);
+
+    printf("Enter key (number): ");
+    scanf("%d", &key);
+
+    printf("Enter IV (number): ");
+    scanf("%d", &iv);
+
+    cbcEncrypt(plaintext, key, iv);
+
+    return 0;
+}
