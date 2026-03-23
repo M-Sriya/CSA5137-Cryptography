@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+
+    char cipher[200];
+
+    printf("Enter ciphertext (uppercase): ");
+    scanf(" %[^\n]", cipher);
+
+    printf("\nPossible Plaintexts:\n");
+
+    for(int key = 0; key < 26; key++) {
+
+        printf("Key %d: ", key);
+
+        for(int i = 0; cipher[i] != '\0'; i++) {
+
+            if(isalpha(cipher[i])) {
+                char p = ((cipher[i] - 'A' - key + 26) % 26) + 'A';
+                printf("%c", p);
+            }
+            else {
+                printf("%c", cipher[i]);
+            }
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
