@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char plain[100];
+    char cipherMap[] = "CIPHERABDFGJKLMNOQSTUVWXYZ";
+
+    printf("Enter plaintext (lowercase): ");
+    scanf("%s", plain);
+
+    for(int i=0; plain[i]; i++) {
+        plain[i] = cipherMap[plain[i]-'a'];
+    }
+
+    printf("Ciphertext: %s\n", plain);
+    return 0;
+}
