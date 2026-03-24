@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main()
+{
+    int lanes[25]={0};
+    int i;
+
+    printf("Initial state lanes:\n");
+
+    for(i=0;i<25;i++)
+        printf("%d ",lanes[i]);
+
+    printf("\n\nAfter absorbing message block:\n");
+
+    for(i=0;i<25;i++)
+        lanes[i]=1;
+
+    for(i=0;i<25;i++)
+        printf("%d ",lanes[i]);
+
+    printf("\nAll lanes now contain non-zero bits.\n");
+
+    return 0;
+}
