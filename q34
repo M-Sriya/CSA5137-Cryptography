@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main()
+{
+    printf("Padding Explanation\n\n");
+
+    printf("Even if plaintext length equals block size,\n");
+    printf("an extra padding block is added.\n\n");
+
+    printf("This allows the receiver to distinguish\n");
+    printf("between actual data and padding bits.\n");
+
+    return 0;
+}
