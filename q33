@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main()
+{
+    int plaintext=25;
+    int key=12;
+
+    int ciphertext=plaintext^key;
+
+    printf("Plaintext: %d\n",plaintext);
+    printf("Key: %d\n",key);
+
+    printf("Ciphertext: %d\n",ciphertext);
+
+    int decrypted=ciphertext^key;
+
+    printf("Decrypted text: %d\n",decrypted);
+
+    return 0;
+}
