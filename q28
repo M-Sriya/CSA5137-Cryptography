@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <math.h>
+
+long power(long a,long b,long mod)
+{
+    long result=1;
+    for(int i=0;i<b;i++)
+        result=(result*a)%mod;
+    return result;
+}
+
+int main()
+{
+    int q=23;
+    int a=5;
+    int xa=6;
+    int xb=15;
+
+    long ya=power(a,xa,q);
+    long yb=power(a,xb,q);
+
+    long ka=power(yb,xa,q);
+    long kb=power(ya,xb,q);
+
+    printf("Public values q=%d a=%d\n",q,a);
+    printf("Alice sends: %ld\n",ya);
+    printf("Bob sends: %ld\n",yb);
+
+    printf("Shared key computed by Alice: %ld\n",ka);
+    printf("Shared key computed by Bob: %ld\n",kb);
+
+    return 0;
+}
