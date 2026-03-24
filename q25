@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int gcd(int a,int b)
+{
+    while(b!=0)
+    {
+        int t=b;
+        b=a%b;
+        a=t;
+    }
+    return a;
+}
+
+int main()
+{
+    int n=3599;
+    int plaintext;
+
+    printf("Enter plaintext block: ");
+    scanf("%d",&plaintext);
+
+    int g = gcd(plaintext,n);
+
+    if(g>1)
+    {
+        printf("Common factor found: %d\n",g);
+        printf("n can be factored!\n");
+    }
+    else
+        printf("No common factor found.\n");
+
+    return 0;
+}
