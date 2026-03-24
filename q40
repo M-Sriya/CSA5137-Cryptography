@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+    char cipher[200];
+    int freq[26] = {0};
+    int i, key;
+
+    printf("Enter Cipher Text: ");
+    fgets(cipher, sizeof(cipher), stdin);
+
+    for(i = 0; cipher[i] != '\0'; i++)
+    {
+        if(isalpha(cipher[i]))
+        {
+            char ch = tolower(cipher[i]);
+            freq[ch - 'a']++;
+        }
+    }
+
+    printf("\nLetter Frequencies:\n");
+    for(i = 0; i < 26; i++)
+        printf("%c : %d\n", 'A' + i, freq[i]);
+
+    printf("\nPossible Plaintexts:\n");
+
+    for(key = 0; key < 26; key++)
+    {
+        printf("Key %d: ", key);
+
+        for(i = 0; cipher[i] != '\0'; i++)
+        {
+            char ch = cipher[i];
+
+            if(isupper(ch))
+                printf("%c", ((ch - 'A' - key + 26) % 26) + 'A');
+            else if(islower(ch))
+                printf("%c", ((ch - 'a' - key + 26) % 26) + 'a');
+            else
+                printf("%c", ch);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
