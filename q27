@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <math.h>
+
+long modexp(long base,long exp,long mod)
+{
+    long result=1;
+    while(exp>0)
+    {
+        if(exp%2==1)
+            result=(result*base)%mod;
+        base=(base*base)%mod;
+        exp/=2;
+    }
+    return result;
+}
+
+int main()
+{
+    int e=7,n=187;
+    char message[]="HELLO";
+
+    printf("Plaintext: %s\n",message);
+    printf("Encrypted values:\n");
+
+    for(int i=0;message[i]!='\0';i++)
+    {
+        int m=message[i]-'A';
+        long c=modexp(m,e,n);
+        printf("%ld ",c);
+    }
+
+    printf("\n");
+    return 0;
+}
