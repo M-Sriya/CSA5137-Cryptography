@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main()
+{
+    printf("DSA Signature Property\n\n");
+
+    printf("Each signature uses a random value k.\n");
+    printf("Even if the same message is signed twice,\n");
+    printf("two different signatures will be generated.\n\n");
+
+    printf("In RSA signatures the same message\n");
+    printf("produces the same signature.\n");
+
+    return 0;
+}
