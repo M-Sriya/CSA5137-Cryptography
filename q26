@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main()
+{
+    printf("RSA Key Security Analysis\n\n");
+
+    printf("If Bob's private key is leaked and he keeps the same modulus n,\n");
+    printf("generating a new public/private key pair is NOT secure.\n\n");
+
+    printf("Reason:\n");
+    printf("Anyone who knows the old private key can factor n into p and q.\n");
+    printf("Once p and q are known, all future keys using the same n can be broken.\n\n");
+
+    printf("Therefore Bob must generate a NEW modulus n with new primes.\n");
+
+    return 0;
+}
